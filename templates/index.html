@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Center - Report an Issue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-headset"></i> Support Center</h1>
+                <p>We're here to help! Report issues or request new features.</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Report an Issue or Feature Request</h2>
+                    <p>Please fill out the form below and we'll get back to you as soon as possible.</p>
+                </div>
+
+                <form id="issueForm" class="issue-form">
+                    <div class="form-group">
+                        <label for="issue_type" class="required">Type of Request</label>
+                        <select id="issue_type" name="issue_type" required>
+                            <option value="">Select type...</option>
+                            <option value="bug">🐛 Bug Report</option>
+                            <option value="feature_request">✨ Feature Request</option>
+                            <option value="support">❓ General Support</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title" class="required">Issue Title</label>
+                        <input type="text" id="title" name="title" required 
+                               placeholder="Brief description of your issue">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="required">Detailed Description</label>
+                        <textarea id="description" name="description" required 
+                                  placeholder="Please provide as much detail as possible. Include steps to reproduce the issue, expected behavior, and any error messages you encountered."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer_name" class="required">Your Name</label>
+                            <input type="text" id="customer_name" name="customer_name" required 
+                                   placeholder="Full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer_email" class="required">Email Address</label>
+                            <input type="email" id="customer_email" name="customer_email" required 
+                                   placeholder="your.email@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer_phone">Phone Number (Optional)</label>
+                        <input type="tel" id="customer_phone" name="customer_phone" 
+                               placeholder="+1 (555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priority">Priority Level</label>
+                        <select id="priority" name="priority">
+                            <option value="low">🟢 Low - General inquiry</option>
+                            <option value="medium" selected>🟡 Medium - Standard issue</option>
+                            <option value="high">🟠 High - Urgent issue</option>
+                            <option value="critical">🔴 Critical - System down/blocking</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Issue
+                        </button>
+                        <button type="reset" class="btn-secondary">
+                            <i class="fas fa-undo"></i> Reset Form
+                        </button>
+                    </div>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <div class="success-content">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Issue Submitted Successfully!</h3>
+                        <p>Your issue has been received and assigned ID: <strong id="issueId"></strong></p>
+                        <p>We'll contact you at the provided email address with updates.</p>
+                        <button class="btn-primary" onclick="resetForm()">Submit Another Issue</button>
+                    </div>
+                </div>
+
+                <div id="errorMessage" class="error-message" style="display: none;">
+                    <div class="error-content">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Error Submitting Issue</h3>
+                        <p id="errorText"></p>
+                        <button class="btn-secondary" onclick="hideError()">Try Again</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h3><i class="fas fa-clock"></i> Response Times</h3>
+                    <ul>
+                        <li><strong>Critical:</strong> Within 2 hours</li>
+                        <li><strong>High:</strong> Within 4 hours</li>
+                        <li><strong>Medium:</strong> Within 1 business day</li>
+                        <li><strong>Low:</strong> Within 3 business days</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle"></i> Tips for Better Support</h3>
+                    <ul>
+                        <li>Provide clear, step-by-step descriptions</li>
+                        <li>Include any error messages or codes</li>
+                        <li>Mention your browser/device if relevant</li>
+                        <li>Attach screenshots if helpful</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Support Center. For urgent issues, contact us directly.</p>
+            <a href="/admin" class="admin-link">Staff Portal</a>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
