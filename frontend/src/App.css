@@ -1,0 +1,120 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+.App {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 24px 32px 32px 32px;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+header h1 {
+  margin-bottom: 12px;
+}
+nav {
+  display: flex;
+  gap: 10px;
+}
+nav button {
+  padding: 8px 18px;
+  border: none;
+  background: #eee;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+nav button.active, nav button:hover {
+  background: #1976d2;
+  color: #fff;
+}
+main {
+  margin-top: 10px;
+}
+.customer-form, .staff-dashboard {
+  background: #fafbfc;
+  border-radius: 6px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.customer-form label {
+  display: block;
+  margin-bottom: 12px;
+}
+.customer-form input, .customer-form select, .customer-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.customer-form textarea {
+  min-height: 80px;
+}
+.customer-form button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.customer-form .success {
+  color: #388e3c;
+  margin-top: 10px;
+}
+.customer-form .error {
+  color: #d32f2f;
+  margin-top: 10px;
+}
+.staff-dashboard button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+.staff-dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+.staff-dashboard th, .staff-dashboard td {
+  border: 1px solid #e0e0e0;
+  padding: 8px 6px;
+  text-align: left;
+}
+.staff-dashboard th {
+  background: #f0f0f0;
+}
+.staff-dashboard .error {
+  color: #d32f2f;
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .App {
+    padding: 10px;
+  }
+  .customer-form, .staff-dashboard {
+    padding: 10px;
+  }
+  header h1 {
+    font-size: 1.2rem;
+  }
+}
