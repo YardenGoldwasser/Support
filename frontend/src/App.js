@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import CustomerForm from './CustomerForm';
+import StaffDashboard from './StaffDashboard';
 import './App.css';
 
 function App() {
+  const [tab, setTab] = useState('customer');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Support Bot</h1>
+        <nav>
+          <button onClick={() => setTab('customer')} className={tab === 'customer' ? 'active' : ''}>Submit Report</button>
+          <button onClick={() => setTab('staff')} className={tab === 'staff' ? 'active' : ''}>Staff Dashboard</button>
+        </nav>
       </header>
+      <main>
+        {tab === 'customer' ? <CustomerForm /> : <StaffDashboard />}
+      </main>
     </div>
   );
 }
